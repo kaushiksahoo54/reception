@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requirements Discussion for Reception - 29th Jan 2025</title>
+    <style>
+        /* Basic Styling */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background: url('hotel.jpg') no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
+        }
+
+        /* Dark Overlay on Background */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); /* Darker overlay */
+            z-index: -1;
+        }
+
+        /* Center Content */
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            z-index: 1;
+        }
+
+        /* Header and Titles */
+        h1 {
+            color: #fff;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        h2 a {
+            color: #FFD700;
+        }
+
+        /* Countdown Timer */
+        .countdown {
+            font-size: 20px;
+            margin: 20px 0;
+            background-color: #fff; /* White background */
+            color: #333;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 300px;
+        }
+
+        /* Button Container */
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+
+        /* Button Styling */
+        .button {
+            padding: 10px 20px;
+            font-size: 18px;
+            text-decoration: none;
+            color: #333;
+            background-color: #fff; /* White background */
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+            width: 80%; /* Makes button width responsive */
+            max-width: 300px;
+        }
+        .button:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 600px) {
+            h1 { font-size: 20px; }
+            h2 { font-size: 16px; }
+            .button { font-size: 16px; padding: 8px 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content">
+        <h1>Requirements Discussion for Reception - 29th Jan 2025</h1>
+        <div class="countdown" id="countdown">Time until reception: <span id="time"></span></div>
+
+        <h2><a href="#requirements">Click below to view the requirement for each section</a></h2>
+
+        <div id="requirements" class="button-container">
+            <a href="bridal-hall.html" class="button">Main Bridal Hall Decoration</a>
+            <a href="dinner-hall.html" class="button">Food/Dinner Hall Decoration</a>
+            <a href="entrance-decoration.html" class="button">Entrance Decoration</a>
+            <a href="power-backup.html" class="button">Power Back and Other Arrangements</a>
+        </div>
+    </div>
+
+    <script>
+        // Countdown Timer Script
+        const targetDate = new Date('2025-01-29T00:00:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const timeDifference = targetDate - now;
+
+            // Calculate days, hours, minutes, and seconds
+            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+            // Format time in a readable way
+            const formattedTime = `${days} days : ${hours} hours : ${minutes} minutes : ${seconds} seconds`;
+            document.getElementById('time').innerText = formattedTime;
+        }
+
+        // Initial countdown update and set interval to refresh every second
+        updateCountdown();
+        setInterval(updateCountdown, 1000); // Refresh every second
+    </script>
+
+</body>
+</html>
